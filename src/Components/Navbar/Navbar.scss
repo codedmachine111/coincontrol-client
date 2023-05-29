@@ -1,0 +1,169 @@
+nav {
+  /* position: fixed; */
+  width: 100%;
+  z-index: 1;
+  display: flex;
+
+  /* background-color: rgb(243, 243, 243); */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 15vh;
+}
+
+.fa-bars {
+  color: #ba68c8;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.fa-times {
+  color: #fff;
+}
+
+#logo-icon {
+  width: 4rem;
+}
+.nav-menu {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  list-style-type: none;
+  align-items: center;
+
+  li {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    list-style: none;
+
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 0.7rem;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-family: "Urbanist", sans-serif;
+
+      &:hover {
+        background-color: #fff;
+        color: #1b1b1b;
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    &:hover > ul {
+      display: block;
+    }
+  }
+}
+a {
+  text-decoration: none;
+}
+#homeli {
+  color: #92e3a9;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.logo {
+  width: 20%;
+}
+
+.checkbtn {
+  font-size: 30px;
+  color: #92e3a9;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+.fa-bars::before {
+  content: "\f0c9";
+}
+#profile-btn {
+  padding: 1rem;
+}
+
+@media all and (max-width: 880px) {
+  .checkbtn {
+    display: block;
+    color: #92e3a9;
+  }
+  #logo-icon {
+    font-size: 2.5rem;
+  }
+
+  .fa-bars {
+    padding: 0.75rem;
+  }
+
+  .list {
+    margin-top: 20px;
+    position: absolute;
+    height: 100%;
+    z-index: 120;
+    background-color: #1b1b1b;
+    top: 10%;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    padding: 1rem 2rem;
+    border: 3px solid #1b1b1b;
+
+    li {
+      width: 100%;
+      margin-bottom: 10px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-start;
+      background-color: #1b1b1b;
+      a {
+        background-color: #1b1b1b;
+        &:hover {
+          transition: 0.2s ease;
+          color: #fff;
+          background-color: #0f0f0f;
+          transition: 0.3s ease;
+        }
+
+        width: 30%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        color: #fff;
+        text-align: left;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  #signout{
+    
+  }
+  #check:checked ~ {
+    ul {
+      left: -0%;
+      transition: all 0.5s ease-in;
+    }
+
+    .checkbtn i::before {
+      content: "\f00d";
+    }
+  }
+}

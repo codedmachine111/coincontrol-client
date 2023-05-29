@@ -1,0 +1,70 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  padding: 0.6rem;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1.5px solid #fff;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  font-weight: 600;
+  color: #0f0f0f;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #0f0f0f;
+  color: #fff;
+}
+
+#signout{
+  text-transform: uppercase;
+  background-color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 4px;
+  color: #0f0f0f;
+
+  &:hover{
+    background-color: #0f0f0f;
+    color: #fff;
+  }
+}
+
+#comment-delete-btn{
+  border: 1px solid #E50914;
+  color: #E50914;
+  background: none;
+  &:hover{
+    background-color: #E50914;
+    color: #fff;
+  }
+}
+
+#delete-post{
+  border: 1px solid #E50914;
+  color: #E50914;
+  background: none;
+  width: 30%;
+  &:hover{
+    background-color: #E50914;
+    color: #fff;
+  }
+}
+
+#profile-btn{
+  border: 1px solid #fff;
+  color: #0f0f0f;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-decoration: none;
+  &:hover{
+    background-color: #0f0f0f;
+    color: #fff;
+  }
+}

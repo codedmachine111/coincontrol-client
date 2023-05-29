@@ -1,0 +1,138 @@
+.landing-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  color: #fff;
+  background: #0f0f0f;
+
+  .landing-content {
+    width: 55%;
+    background-image: url("../../assets/landing-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    height: 100vh;
+
+    #mobile-app {
+      width: 60%;
+    }
+
+    .content {
+      background: none;
+      height: 100vh;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      h1,
+      p {
+        background: none;
+      }
+      h1 {
+        font-size: 6rem;
+      }
+      p {
+        opacity: 0.8;
+      }
+
+      a {
+        background: none;
+        margin: 0.5rem 0;
+        width: 25%;
+        .btn {
+          width: 100%;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+  .landing-timer-container {
+    width: 45%;
+    height: 100vh;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #logo-icon {
+      width: 5rem;
+    }
+    form {
+      width: 70%;
+    }
+  }
+  #diff {
+    color: #ba68c8;
+    background-image: linear-gradient(45deg, #fff, #ba68c8);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    transition: 0.3s ease-in-out;
+  }
+  #home-logo {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .landing-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      height: auto;
+      background-position: left;
+      .content {
+        h1 {
+          font-size: 5rem;
+          line-height: 5rem;
+          width: 100%;
+          margin: 0.2rem 0;
+          padding: 0;
+        }
+        p {
+          width: 100%;
+          padding: 0.1rem;
+          font-size: 0.8rem;
+        }
+        a {
+          width: 50%;
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+
+      #mobile-app {
+        display: none;
+      }
+    }
+    .landing-timer-container {
+      width: 100%;
+      height: 100vh;
+      padding: 5rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      form {
+        width: 100%;
+      }
+    }
+  }
+}

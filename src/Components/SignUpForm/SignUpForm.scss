@@ -1,0 +1,65 @@
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;    
+    padding: 2rem;
+    border-radius: 10px;
+    width: 30%;
+
+    h2{
+        text-align: center;
+        color: #fff;
+        font-size: 2rem;
+    }
+    p{
+        color: #fff;
+        font-size: 0.8rem;
+        letter-spacing: 0.3px;
+        width: 100%;
+        text-align: center;
+        font-weight: 400;
+        opacity: 0.7;
+        margin-bottom: 2rem;
+
+        #bold{
+            font-weight: bold;
+            text-transform: capitalize;
+            text-decoration: underline;
+        }
+    }
+    #signup-input{
+        width: 90%;
+        border: 1.5px solid rgb(255, 255, 255);
+        color: #fff;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+
+        &:focus{
+            outline: none;
+            border: none;
+            border-bottom: #BA68C8 2px solid;
+            transition: 0.2s ease;
+        }
+    }
+
+    .btn{
+        width: 50%;
+        background-color: rgb(255, 255, 255);
+        color: #0f0f0f;
+        margin: 1rem 0;
+        font-weight: 600;
+        border-radius: 0px;
+    }
+    #auth-redirect{
+        text-align: center;
+        margin-top: 1rem;
+        font-weight: 400;
+        opacity: 0.7;
+
+        a{
+            text-decoration: none;
+            color: #BA68C8;
+        }
+    }
+}
