@@ -17,6 +17,7 @@ export const SignUpForm = (props) => {
   const initialValues = {
     username: "",
     password: "",
+    email: "",
     confirmPassword: "",
   };
 
@@ -24,6 +25,7 @@ export const SignUpForm = (props) => {
     const userObject = {
       username: values.username,
       password: values.password,
+      email: values.email,
     };
 
     if (values.password === values.confirmPassword) {
@@ -44,7 +46,8 @@ export const SignUpForm = (props) => {
         <Form className="signup-form">
           <h2>Create new account</h2>
           <p>
-            <span id="bold">Signup</span> to create an account and manage your funds effortlessly.
+            <span id="bold">Signup</span> to create an account and share your stories with your
+            friends.
           </p>
           <Field
             id="signup-input"
@@ -54,6 +57,14 @@ export const SignUpForm = (props) => {
             placeholder="Choose a cool username"
           />
           <ErrorMessage name="username" />
+          <Field
+            id="signup-input"
+            name="email"
+            type="email"
+            autoComplete="off"
+            placeholder="Enter a valid email"
+          />
+          <ErrorMessage name="email" />
           <Field
             id="signup-input"
             name="password"
