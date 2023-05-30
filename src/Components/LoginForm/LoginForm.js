@@ -25,7 +25,7 @@ export const LoginForm = (props) => {
       password: values.password,
     };
 
-    axios.post(`https://pixtory-server.vercel.app/auth/login`, userObject).then((res) => {
+    axios.post(`https://coincontrol-server.vercel.app/auth/login`, userObject).then((res) => {
       if (res.data.message === "Login Successful") {
         resetFormFields();
         setAuthUser({
