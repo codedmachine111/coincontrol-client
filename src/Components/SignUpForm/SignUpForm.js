@@ -3,11 +3,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { Button } from "../../Components/Button/Button";
 import { UserContext } from "../../App";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 export const SignUpForm = (props) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const { setAuthUser } = useContext(UserContext);
 
   const resetFormFields = () => {
@@ -29,15 +31,19 @@ export const SignUpForm = (props) => {
     };
 
     if (values.password === values.confirmPassword) {
-      axios.post(`https://coincontrol-server.vercel.app/auth/signup`, userObject).then((res) => {
-        if (res.data.message === "User Created!") {
-          alert(res.data.message);
-          props.toggleAuth();
-        }
-      });
-    } else{
+      setLoading(true);
+      axios
+        .post(`http://localhost:3001/auth/signup`, userObject)
+        .then((res) => {
+          if (res.data.message === "User Created!") {
+            alert(res.data.message);
+            props.toggleAuth();
+          }
+        });
+    } else {
       alert("Passwords don't match");
     }
+    setLoading(false);
   };
 
   return (
@@ -46,8 +52,8 @@ export const SignUpForm = (props) => {
         <Form className="signup-form">
           <h2>Create new account</h2>
           <p>
-            <span id="bold">Signup</span> to create an account and share your stories with your
-            friends.
+            <span id="bold">Signup</span> to create an account and share your
+            stories with your friends.
           </p>
           <Field
             id="signup-input"
@@ -84,11 +90,19 @@ export const SignUpForm = (props) => {
           />
           <ErrorMessage name="confirmPassword" />
 
-          <Button
-            type="submit"
-            title="SIGNUP"
-            onSubmit={onSignupSubmitHandler}
-          />
+          {loading ? (
+            <>
+              <CircularProgress />
+            </>
+          ) : (
+            <>
+              <Button
+                type="submit"
+                title="SIGNUP"
+                onSubmit={onSignupSubmitHandler}
+              />
+            </>
+          )}
 
           <p id="auth-redirect">
             Have an account?{" "}

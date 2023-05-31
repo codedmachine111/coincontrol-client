@@ -14,8 +14,9 @@ function App() {
     status: false,
     username: "",
     userId: 0,
+    income: 0,
   });
-
+  
   return (
     <div className="App">
       <UserContext.Provider value={{ authUser, setAuthUser }}>

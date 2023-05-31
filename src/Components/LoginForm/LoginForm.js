@@ -3,12 +3,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { Button } from "../../Components/Button/Button";
 import { UserContext } from "../../App";
-import { useContext } from "react";
-import {useNavigate, Link} from "react-router-dom";
+import { useContext, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 export const LoginForm = (props) => {
-
   const { setAuthUser } = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const resetFormFields = () => {
@@ -18,25 +19,29 @@ export const LoginForm = (props) => {
   const initialValues = {
     username: "",
     password: "",
+    email: "",
   };
   const onLoginSubmitHandler = async (values) => {
     const userObject = {
       username: values.username,
       password: values.password,
+      email: values.email,
     };
-
-    axios.post(`https://coincontrol-server.vercel.app/auth/login`, userObject).then((res) => {
+    axios.post(`http://localhost:3001/auth/login`, userObject).then((res) => {
+      setLoading(true);
       if (res.data.message === "Login Successful") {
         resetFormFields();
         setAuthUser({
           status: true,
           username: res.data.username,
-          userId : res.data.userId
+          userId: res.data.userId,
         });
         localStorage.setItem("token", res.data.accessToken);
-        navigate("/posts");
-      }else{
+        navigate("/home");
+        setLoading(false);
+      } else {
         alert(res.data.message);
+        setLoading(false);
       }
     });
   };
@@ -46,7 +51,9 @@ export const LoginForm = (props) => {
       <Formik initialValues={initialValues} onSubmit={onLoginSubmitHandler}>
         <Form className="login-form">
           <h2>Have an account?</h2>
-          <p><span id="bold">Login</span> to enter and manage your money.</p>
+          <p>
+            <span id="bold">Login</span> to enter and manage your money.
+          </p>
           <Field
             id="login-input"
             name="username"
@@ -64,9 +71,26 @@ export const LoginForm = (props) => {
           />
           <ErrorMessage name="password" />
 
-          <Button type="submit" title="LOGIN" onSubmit={onLoginSubmitHandler} />
+          {loading ? (
+            <>
+              <CircularProgress />
+            </>
+          ) : (
+            <>
+              <Button
+                type="submit"
+                title="LOGIN"
+                onSubmit={onLoginSubmitHandler}
+              />
+            </>
+          )}
 
-          <p id="auth-redirect">Don't have an account? <Link to="/auth" onClick={()=> props.toggleAuth()}>Signup</Link></p>
+          <p id="auth-redirect">
+            Don't have an account?{" "}
+            <Link to="/auth" onClick={() => props.toggleAuth()}>
+              Signup
+            </Link>
+          </p>
         </Form>
       </Formik>
     </>

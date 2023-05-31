@@ -1,0 +1,45 @@
+.amount-widget-container{
+    width: 100%;
+    background-color: #2E2E2E;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    .aw-icon{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+        background-color: #2E2E2E;
+        
+        svg{
+            width: 100%;
+            height: auto;
+            background-color: #2E2E2E;
+        }
+    }
+
+    .aw-amount-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 50%;
+        background-color: #2E2E2E;
+        #type{
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #fff;
+            opacity: 0.8;
+            background-color: #2E2E2E;
+        }
+        p{
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #2E2E2E;
+        }
+    }
+}
