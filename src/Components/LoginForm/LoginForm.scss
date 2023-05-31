@@ -7,6 +7,21 @@
     border-radius: 10px;
     width: 30%;
 
+    #loading{
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+        #loadbar{
+            background: none;
+            border: none;
+            width: 0.2rem;
+        }
+        svg{
+            color: #fff;
+                width: 100%;
+        }
+    }
+
     h2{
         text-align: center;
         font-size: 2.2rem;

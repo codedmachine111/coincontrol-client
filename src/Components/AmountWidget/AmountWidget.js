@@ -3,9 +3,12 @@ import Icon from '@mui/material/Icon';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { red } from '@mui/material/colors';
+import { UserContext } from '../../App';
+import { useContext } from 'react';
 
 export const AmountWidget = (props)=>{
-    const {amount, type, icon} = props;
+    const { type, icon} = props;
+    const {authUser} = useContext(UserContext);
     return(
         <>
         <div className="amount-widget-container">
@@ -14,7 +17,7 @@ export const AmountWidget = (props)=>{
             </div>
             <div className='aw-amount-content'>
                 <p id='type'>{type}</p>
-                <p>₹ {amount}0</p>
+                {type === 'Income' ? <p id='amount'>+{authUser.credit}</p> : <p id='amount'>-{authUser.expenses}</p>}
             </div>
         </div>
         </>

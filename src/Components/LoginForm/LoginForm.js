@@ -27,8 +27,8 @@ export const LoginForm = (props) => {
       password: values.password,
       email: values.email,
     };
+    setLoading(true);
     axios.post(`http://localhost:3001/auth/login`, userObject).then((res) => {
-      setLoading(true);
       if (res.data.message === "Login Successful") {
         resetFormFields();
         setAuthUser({
@@ -73,7 +73,9 @@ export const LoginForm = (props) => {
 
           {loading ? (
             <>
-              <CircularProgress />
+              <div id="loading">
+                <CircularProgress id="loadbar"/>
+              </div>
             </>
           ) : (
             <>

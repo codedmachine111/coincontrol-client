@@ -1,0 +1,54 @@
+.transaction-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #1b1b1b;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 0.2rem;
+    gap: 1%;
+
+    #transaction-amount-input {
+      width: 100%;
+      border: 1px solid #2e2e2e;
+      padding: 0.5rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #fff;
+      background-color: transparent;
+      outline: none;
+  
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+  
+      &[type="number"] {
+        -moz-appearance: textfield;
+      }
+    }
+    .btn{
+        margin: 0;
+        border-radius: 0;
+    }
+    #transaction-category-select {
+        width: 100%;
+        border: none;
+        padding: 0.7rem;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #fff;
+        outline: none;
+        background-color: #2e2e2e;
+  
+        option {
+          color: #fff;
+          background-color: #2e2e2e;
+          font-family: "Poppins", sans-serif;
+        }
+      }
+
+  }

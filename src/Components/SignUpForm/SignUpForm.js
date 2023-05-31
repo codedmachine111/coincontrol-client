@@ -30,20 +30,21 @@ export const SignUpForm = (props) => {
       email: values.email,
     };
 
+    setLoading(true);
     if (values.password === values.confirmPassword) {
-      setLoading(true);
       axios
         .post(`http://localhost:3001/auth/signup`, userObject)
         .then((res) => {
           if (res.data.message === "User Created!") {
             alert(res.data.message);
+            setLoading(false);
             props.toggleAuth();
           }
         });
     } else {
       alert("Passwords don't match");
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -92,7 +93,9 @@ export const SignUpForm = (props) => {
 
           {loading ? (
             <>
-              <CircularProgress />
+              <div id="loading">
+                <CircularProgress id="loadbar"/>
+              </div>
             </>
           ) : (
             <>

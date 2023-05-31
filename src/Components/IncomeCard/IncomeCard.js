@@ -56,7 +56,7 @@ export const IncomeCard = () => {
                 placeholder="Enter your income"
                 required={true}
               />
-              <Button type="submit" title="ADD" onSubmit={onIncomeAddHandler} />
+              {loading ? <CircularProgress /> : <Button type="submit" title="Add" />}
             </Form>
           </Formik>
         ) : (
