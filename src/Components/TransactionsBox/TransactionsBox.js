@@ -17,22 +17,32 @@ export const TransactionsBox = () => {
         setListOfTransactions(response.data.listOfTransactions);
       });
   }, []);
-
   return (
     <>
-      <div className="transactions-box-container">
-        <p>Recent transactions</p>
-        {listOfTransactions.map((value) => {
-            return (
+      <p id="title">Recent transactions</p>
+      {!listOfTransactions ? (
+        <>
+          <div className="transactions-box-container">
+            <p>No transactions made yet.</p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="transactions-box-container">
+            {listOfTransactions.map((value) => {
+              return (
                 <TransactionCard
-                key={value.id}
-                amount={value.amount}
-                category={value.category}
-                date={value.createdAt}
+                  key={value.id}
+                  id={value.id}
+                  amount={value.amount}
+                  category={value.category}
+                  date={value.createdAt}
                 />
-            );
-        })}
-      </div>
+              );
+            })}
+          </div>
+        </>
+      )}
     </>
   );
 };

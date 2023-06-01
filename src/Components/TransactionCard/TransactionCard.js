@@ -1,24 +1,31 @@
 import "./TransactionCard.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faEllipsis,
+  faUtensils,
+  faBus,
+  faBook,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import { Button } from "../Button/Button";
 
 export const TransactionCard = (props) => {
-  const { category, amount, date } = props;
-
+  const { id, category, amount, date } = props;
   let iconType = "";
   if (category === "Credit") {
-    iconType = "plus";
+    iconType = faPlus;
   } else if (category === "hotels") {
-    iconType = "utensils";
+    iconType = faUtensils;
   } else if (category === "travel") {
-    iconType = "bus";
+    iconType = faBus;
   } else if (category === "miscellaneous") {
-    iconType = "ellipsis";
+    iconType = faEllipsis;
   } else if (category === "groceries") {
-    iconType = "cart-shopping";
+    iconType = faCartShopping;
   } else {
-    iconType = "book";
+    iconType = faBook;
   }
 
   const formatDate = (dateString) => {
@@ -28,32 +35,34 @@ export const TransactionCard = (props) => {
     return formattedDate;
   };
 
+  const onDeleteHandler = async () => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3001/transactions/delete/${id}`,
+        {
+          headers: {
+            accessToken: localStorage.getItem("token"),
+          },
+        }
+      );
+
+      if (response.data.message === "Transaction deleted successfully") {
+        alert("Transaction deleted successfully");
+        window.location.reload();
+      } else {
+        alert("Failed to delete transaction");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="transaction-card-container">
-        {iconType !== "ellipsis" || iconType !== "cart-shopping" ? (
-          <>
-            <div className="tc-icon">
-              <i className={`fa fa-${iconType}`}></i>
-            </div>
-          </>
-        ) : (
-          <>
-            {iconType === "ellipsis" ? (
-              <>
-                <div className="tc-icon">
-                  <FontAwesomeIcon icon={faEllipsis} />
-                </div>
-              </>
-            ) : (
-              <>
-              <div className="tc-icon">
-                <FontAwesomeIcon icon={faCartShopping} />
-            </div>
-              </>
-            )}
-          </>
-        )}
+        <div className="tc-icon">
+          <FontAwesomeIcon icon={iconType} />
+        </div>
         <div className="tc-amount-content">
           <div className="tc-amount">
             {category === "Credit" ? (
@@ -69,6 +78,9 @@ export const TransactionCard = (props) => {
           <div className="tc-date">
             <p>{formatDate(date)}</p>
           </div>
+        </div>
+        <div className="tc-delete-button">
+          <Button title="Delete" onClick={onDeleteHandler} />
         </div>
       </div>
     </>

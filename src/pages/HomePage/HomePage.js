@@ -8,6 +8,7 @@ import { CircularProgress } from "@mui/material";
 import { AmountWidget } from "../../Components/AmountWidget/AmountWidget";
 import { AddTransactionCard } from "../../Components/AddTransactionCard/AddTransactionCard";
 import { TransactionsBox } from "../../Components/TransactionsBox/TransactionsBox";
+import { StatisticsBox } from "../../Components/StatisticsBox/StatisticsBox";
 
 export const HomePage = () => {
   const { authUser, setAuthUser } = useContext(UserContext);
@@ -68,7 +69,9 @@ export const HomePage = () => {
                   <AmountWidget type="Expenses" icon="down" />
                 </div>
               </div>
-              <div className="home-stats-container"></div>
+              <div className="home-stats-container">
+                <StatisticsBox />
+              </div>
               <div className="home-transactions-container">
                 <AddTransactionCard />
                 <TransactionsBox />

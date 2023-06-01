@@ -1,20 +1,100 @@
+// FOR MOBILE DEVICES
+@media screen and (max-width: 600px) {
+  .transaction-card-container {
+    width: 100%;
+    background-color: #1b1b1b;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    margin: 0.5rem 0;
+    border: 0.5px solid #ccc;
+    .tc-icon {
+      display: flex;
+      padding: 0.2rem;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      background-color: #1b1b1b;
+
+      svg {
+        width: 100%;
+        font-size: 2rem;
+        color: #fff;
+        background-color: #1b1b1b;
+      }
+    }
+    .tc-amount-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 50%;
+      background-color: #1b1b1b;
+      #type {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.8;
+        background-color: #1b1b1b;
+      }
+      .tc-amount {
+        p {
+          font-size: 1rem;
+          font-weight: 600;
+          color: #fff;
+          background-color: #1b1b1b;
+        }
+
+        #credit {
+          color: #62d9a1;
+        }
+        #debit {
+          color: #ff4949;
+        }
+      }
+
+      .tc-date {
+        p {
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: #fff;
+          opacity: 0.8;
+          background-color: #1b1b1b;
+        }
+      }
+    }
+
+    .tc-delete-button {
+      background-color: #1b1b1b;
+    }
+    .btn {
+      margin: 0;
+      border-radius: 0;
+    }
+  }
+}
+
+// FOR DESKTOP DEVICES
 .transaction-card-container {
   width: 100%;
   background-color: #1b1b1b;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: row;
   gap: 5%;
   margin: 0.5rem 0;
-
-  .tc-icon {
+  border: 0.5px solid #ccc;
+  .tc-icon,
+  .tcp-icon {
     display: flex;
+    padding: 0.2rem;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 20%;
     background-color: #1b1b1b;
-
     i {
       width: 100%;
       height: auto;
@@ -22,9 +102,8 @@
       color: #fff;
       background-color: #1b1b1b;
     }
-
     #shop {
-      width: 100%;
+      width: 50%;
       height: auto;
       font-size: 2rem;
       color: #fff;
@@ -38,7 +117,9 @@
       background-color: #1b1b1b;
     }
   }
-
+  .tcp-icon {
+    width: 15%;
+  }
   .tc-amount-content {
     display: flex;
     flex-direction: column;
@@ -60,7 +141,6 @@
         color: #fff;
         background-color: #1b1b1b;
       }
-
       #credit {
         color: #62d9a1;
       }
@@ -68,7 +148,6 @@
         color: #ff4949;
       }
     }
-
     .tc-date {
       p {
         font-size: 0.8rem;
@@ -78,5 +157,8 @@
         background-color: #1b1b1b;
       }
     }
+  }
+  .tc-delete-button {
+    background-color: #1b1b1b;
   }
 }

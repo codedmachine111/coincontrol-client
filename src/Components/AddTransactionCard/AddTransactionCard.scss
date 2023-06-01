@@ -1,3 +1,21 @@
+#loading{
+  width: 100%;
+  text-align: center;
+  #loadbar{
+      border: none;
+      width: 0.2rem;
+  }
+  svg{
+      color: #fff;
+      width: 100%;
+  }
+}
+
+p{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
 .transaction-form {
     display: flex;
     flex-direction: row;

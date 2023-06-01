@@ -45,14 +45,20 @@ export const AddTransactionCard = () => {
         if (values.category === "Credit") {
           updatedIncome += values.amount;
           updatedCredit += values.amount;
-          setAuthUser({ ...authUser, income: updatedIncome, credit: updatedCredit });
+          setAuthUser({
+            ...authUser,
+            income: updatedIncome,
+            credit: updatedCredit,
+          });
         } else {
           updatedIncome -= values.amount;
           updatedExpenses += values.amount;
-          setAuthUser({ ...authUser, income: updatedIncome, expenses: updatedExpenses });
+          setAuthUser({
+            ...authUser,
+            income: updatedIncome,
+            expenses: updatedExpenses,
+          });
         }
-
-        setLoading(false);
 
         // Update the original income in the database
         await axios.put(
@@ -69,6 +75,9 @@ export const AddTransactionCard = () => {
             },
           }
         );
+        setLoading(false);
+        alert("Transaction added successfully");
+        window.location.reload();
       } else {
         alert("Failed to add transaction");
         setLoading(false);
@@ -82,36 +91,50 @@ export const AddTransactionCard = () => {
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={onTransactionAddHandler}>
-        <Form className="transaction-form" id="transaction-form">
-          <Field
-            id="transaction-category-select"
-            name="category"
-            as="select"
-            required={true}
-          >
-            <option value="">Transaction type</option>
-            <option value="Credit">Credit</option>
-            <option value="hotels">Hotels</option>
-            <option value="travel">Travel</option>
-            <option value="miscellaneous">Miscellaneous</option>
-            <option value="groceries">Groceries</option>
-            <option value="education">Education</option>
-          </Field>
-          <Field
-            id="transaction-amount-input"
-            name="amount"
-            type="number"
-            placeholder="Enter the amount"
-            required={true}
-          />
-          <Button
-            type="submit"
-            title="ADD"
+      {loading ? (
+        <>
+          <div id="loading">
+            <CircularProgress id="loadbar" />
+          </div>
+        </>
+      ) : (
+        <>
+          <p>Add transactions</p>
+          <Formik
+            initialValues={initialValues}
             onSubmit={onTransactionAddHandler}
-          />
-        </Form>
-      </Formik>
+          >
+            <Form className="transaction-form" id="transaction-form">
+              <Field
+                id="transaction-category-select"
+                name="category"
+                as="select"
+                required={true}
+              >
+                <option value="">Transaction type</option>
+                <option value="Credit">Credit</option>
+                <option value="hotels">Hotels</option>
+                <option value="travel">Travel</option>
+                <option value="miscellaneous">Miscellaneous</option>
+                <option value="groceries">Groceries</option>
+                <option value="education">Education</option>
+              </Field>
+              <Field
+                id="transaction-amount-input"
+                name="amount"
+                type="number"
+                placeholder="Enter the amount"
+                required={true}
+              />
+              <Button
+                type="submit"
+                title="ADD"
+                onSubmit={onTransactionAddHandler}
+              />
+            </Form>
+          </Formik>
+        </>
+      )}
     </>
   );
 };

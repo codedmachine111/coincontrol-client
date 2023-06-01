@@ -1,83 +1,88 @@
-.income-card{
-    width: 90%;
-    background-color: #1b1b1b;
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: -0.2rem 0.2rem 5px #252525;
-    position: relative;
-    
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    width: 100%;
-    height: 100%;
-    background: rgba(133, 66, 66, 0.3);
-    z-index: -1;
-    border-radius: 1rem;
-  }
-
-    #loading{
-        background: #1b1b1b;
-        #loadbar{
-            background: #1b1b1b;
-            border: none;
-            width: 0.2rem;
-        }
-        svg{
-            color: #fff;
-            background-color: #1b1b1b;
-            width: 100%;
-        }
-    }
-    .income-card-title{
+// FOR MOBILE DEVICES
+@media screen and (max-width : 600px){
+    .income-card{
+        width: 90%;
         background-color: #1b1b1b;
-        h2{
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 1rem;
-            background-color: #1b1b1b;
-        }
-        p{
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-            background-color: #1b1b1b;
-        }
-        .income-form{
-            margin-top: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #1b1b1b;
-            gap: 2%;
-            #income-form-input{
-                width: 100%;
-                border: 1px #252525 solid;
-                padding: 0.5rem;
-                font-size: 1rem;
-                font-weight: 400;
-                color: #fff;
-                outline: none;
-                background-color: #1b1b1b;
-                border-bottom: 0.5px #a09f9f solid;
-
-                &::-webkit-outer-spin-button,
-                &::-webkit-inner-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0;
-                }
-
-                &[type=number] {
-                    -moz-appearance: textfield;
-                }
+        border-radius: 1rem;
+        padding: 1rem;
+        box-shadow: -0.2rem 0.2rem 5px #252525;
+        position: relative;
+        
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        width: 100%;
+        height: 100%;
+        background: rgba(133, 66, 66, 0.3);
+        z-index: -1;
+        border-radius: 1rem;
+      }
+    
+        #loading{
+            background: #1b1b1b;
+            #loadbar{
+                background: #1b1b1b;
+                border: none;
+                width: 0.2rem;
             }
-
-            .btn{
-                border-radius: 0;
+            svg{
+                color: #fff;
+                background-color: #1b1b1b;
+                width: 100%;
+            }
+        }
+        .income-card-title{
+            background-color: #1b1b1b;
+            h2{
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #fff;
+                margin-bottom: 1rem;
+                background-color: #1b1b1b;
+            }
+            p{
+                font-size: 1rem;
+                font-weight: 600;
+                color: #fff;
+                background-color: #1b1b1b;
+            }
+            .income-form{
+                margin-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #1b1b1b;
+                gap: 2%;
+                #income-form-input{
+                    width: 100%;
+                    border: 1px #252525 solid;
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: #fff;
+                    outline: none;
+                    background-color: #1b1b1b;
+                    border-bottom: 0.5px #a09f9f solid;
+    
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+    
+                    &[type=number] {
+                        -moz-appearance: textfield;
+                    }
+                }
+    
+                .btn{
+                    border-radius: 0;
+                }
             }
         }
     }
 }
+
+// FOR DESKTOP DEVICES

@@ -1,0 +1,15 @@
+.statistics-box-container {
+  width: 100%;
+
+  .sb-charts-holder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
