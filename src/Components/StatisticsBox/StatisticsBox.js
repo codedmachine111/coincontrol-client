@@ -17,18 +17,18 @@ export const StatisticsBox = () => {
       });
       const transactions = response.data.listOfTransactions;
       setTransactionsData(transactions);
-      // Calculate the total expense for each category
+      // CALCULATE THE EXPENSES BY CATEGORY
       const expenseByCategory = transactions.reduce((acc, transaction) => {
         if (transaction.category === "Credit") return acc;
         if (transaction.category in acc) {
-          acc[transaction.category] += transaction.amount;
+          acc[transaction.category] += parseInt(transaction.amount);
         } else {
-          acc[transaction.category] = transaction.amount;
+          acc[transaction.category] = parseInt(transaction.amount);
         }
         return acc;
       }, {});
 
-      // Prepare the data for the pie chart
+      // PREPARE THE CHART
       new Chart(document.getElementById("test"), {
         type: "doughnut",
         data: {
@@ -38,7 +38,6 @@ export const StatisticsBox = () => {
               label: "Expenses",
               backgroundColor: [
                 "#FF6384",
-                "#36A2EB",
                 "#FFCE56",
                 "#4BC0C0",
                 "#9966FF",

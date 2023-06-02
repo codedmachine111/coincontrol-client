@@ -65,68 +65,36 @@
     }
 }
 
-// // FOR DESKTOP SCREENS
-// .home-container{
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: flex-start;
-//     min-height: 100vh;
-//     width: 80%;
-//     padding: 2rem 10rem;
-//     height: auto;
+// FOR DESKTOP DEVICES
+.home-container{
+    .home-title{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 1rem 0;
+        h1{
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+            align-content: left;
     
-//     #loading{
-//         #loadbar{
-//             background: none;
-//             border: none;
-//             width: 0.2rem;
-//         }
-//         svg{
-//             color: #fff;
-//                 width: 100%;
-//         }
-//     }
-//     .home-content{
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         justify-content: center;
-//         height: 100%;
-//         width: 100%;
-        
-//         .home-title{
-//             width: 100%;
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//             flex-direction: column;
-//             h1{
-//                 width: 100%;
-//                 font-size: 1rem;
-//                 font-weight: 600;
-//                 margin-bottom: 1rem;
-//                 color: #fff;
-//                 align-content: left;
-    
-//                 #diff{
-//                     color: #f8b500;
-//                 }
-//             }
-//         }
-//         .amount-widgets{
-//             display: flex;
-//             flex-direction: row;
-//             align-items: center;
-//             justify-content: flex-start;
-//             gap: 10%;
-//             width: 100%;
-//             height: auto;
-//             margin: 1rem 0;
-//         }
+            #diff{
+                color: #f8b500;
+            }
+        }
 
-//         .home-stats-container{
-//             width: 100%;
-//         }
-//     }
-// }
+        .amount-widgets{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 5%;
+            height: auto;
+            margin: 1rem 0;
+        }
+    }
+}

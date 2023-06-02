@@ -13,6 +13,7 @@ export const IncomeCard = () => {
     income: 0,
   };
 
+  // FUNCTION TO HANDLE INCOME ADDITION
   const onIncomeAddHandler = async (values) => {
     setLoading(true);
     try {
@@ -28,7 +29,8 @@ export const IncomeCard = () => {
           },
         }
       );
-  
+        
+      // IF INCOME IS UPDATED SUCCESSFULLY, UPDATE THE AUTHUSER STATE
       if (response.data.message === "Income updated successfully") {
         setAuthUser({ ...authUser, income: values.income });
         setLoading(false);

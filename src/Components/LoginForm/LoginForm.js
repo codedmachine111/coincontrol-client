@@ -21,6 +21,8 @@ export const LoginForm = (props) => {
     password: "",
     email: "",
   };
+
+  // FUNCTION TO HANDLE LOGIN SUBMISSION
   const onLoginSubmitHandler = async (values) => {
     const userObject = {
       username: values.username,

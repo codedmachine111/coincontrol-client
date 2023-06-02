@@ -37,22 +37,26 @@ export const AddTransactionCard = () => {
       );
 
       if (response.data.message === "Transaction added successfully") {
-        // Calculate updated income based on the selected category
+        // CALCULATE THE UPDATED INCOME, CREDIT AND EXPENSES
         let updatedIncome = authUser.income;
         let updatedCredit = authUser.credit;
         let updatedExpenses = authUser.expenses;
 
+        // IF THE TRANSACTION IS A CREDIT, ADD THE AMOUNT TO INCOME AND CREDIT
         if (values.category === "Credit") {
           updatedIncome += values.amount;
           updatedCredit += values.amount;
+          // UPDATE THE AUTHUSER STATE
           setAuthUser({
             ...authUser,
             income: updatedIncome,
             credit: updatedCredit,
           });
         } else {
+          // IF THE TRANSACTION IS AN EXPENSE, SUBTRACT THE AMOUNT FROM INCOME AND ADD IT TO EXPENSES
           updatedIncome -= values.amount;
           updatedExpenses += values.amount;
+          // UPDATE THE AUTHUSER STATE
           setAuthUser({
             ...authUser,
             income: updatedIncome,
@@ -60,7 +64,7 @@ export const AddTransactionCard = () => {
           });
         }
 
-        // Update the original income in the database
+        // UPDATE THE USER'S INCOME, CREDIT AND EXPENSES IN THE DATABASE
         await axios.put(
           "http://localhost:3001/auth/update",
           {
