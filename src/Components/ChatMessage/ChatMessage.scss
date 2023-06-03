@@ -1,0 +1,15 @@
+.chat-message-component{
+    width: 90%;
+    padding: 0.5rem;
+    margin: 0.5rem;
+
+    #chat{
+        padding: 0.5rem;
+        width: 100%;
+        font-weight: 500;
+        font-size: 0.8rem;
+        color: #fff;
+        background-color: #1b1b1b;
+        white-space: pre-wrap;
+    }
+}

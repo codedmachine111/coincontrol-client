@@ -9,9 +9,15 @@ import { AmountWidget } from "../../Components/AmountWidget/AmountWidget";
 import { AddTransactionCard } from "../../Components/AddTransactionCard/AddTransactionCard";
 import { TransactionsBox } from "../../Components/TransactionsBox/TransactionsBox";
 import { StatisticsBox } from "../../Components/StatisticsBox/StatisticsBox";
+import { ChatBox } from "../../Components/ChatBox/ChatBox";
+import { ToggleChatBotContext } from "../../App";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 export const HomePage = () => {
   const { authUser, setAuthUser } = useContext(UserContext);
+  const { isChatBotOpen, setIsChatBotOpen } = useContext(ToggleChatBotContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -26,7 +32,14 @@ export const HomePage = () => {
       .then((res) => {
         if (res.data.error) {
           console.log(res.data.error);
-          setAuthUser({ status: false, username: "", userId: 0, income: 0, credit: 0, expenses: 0 });
+          setAuthUser({
+            status: false,
+            username: "",
+            userId: 0,
+            income: 0,
+            credit: 0,
+            expenses: 0,
+          });
           setLoading(false);
         } else {
           setAuthUser({
@@ -44,9 +57,12 @@ export const HomePage = () => {
   const onSignoutHandler = () => {
     localStorage.removeItem("token");
     setAuthUser({ status: false, username: "", userId: 0 });
-    navigate("/");
+    navigate("/auth");
   };
 
+  const toggleChatBox = () => {
+    setIsChatBotOpen(!isChatBotOpen);
+  }
   return (
     <>
       <div className="home-container">
@@ -63,20 +79,40 @@ export const HomePage = () => {
                 <h1>
                   Hello, <span id="diff">{authUser.username}!</span>
                 </h1>
-                <IncomeCard />
-                <div className="amount-widgets">
-                  <AmountWidget type="Income" icon="up" />
-                  <AmountWidget type="Expenses" icon="down" />
+                <div className="signout-icon">
+                  <FontAwesomeIcon
+                    icon={faRightFromBracket}
+                    id="signout-icon"
+                    onClick={onSignoutHandler}
+                  />
                 </div>
               </div>
-              <div className="home-stats-container">
-                <StatisticsBox />
-              </div>
-              <div className="home-transactions-container">
-                <AddTransactionCard />
-                <TransactionsBox />
+              <IncomeCard />
+              <div className="amount-widgets">
+                <AmountWidget type="Income" icon="up" />
+                <AmountWidget type="Expenses" icon="down" />
               </div>
             </div>
+            <div className="home-stats-container">
+              <StatisticsBox />
+            </div>
+            <div className="home-transactions-container">
+              <AddTransactionCard />
+              <TransactionsBox />
+            </div>
+            {isChatBotOpen ? (
+              <>
+                <div className="chatbot-cont">
+                  <ChatBox />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="chatbot-icon" onClick={toggleChatBox}>
+                  <FontAwesomeIcon icon={faRobot} id="bot-icon"/>
+                </div>
+              </>
+            )}
           </>
         )}
       </div>

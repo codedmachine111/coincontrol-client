@@ -9,6 +9,8 @@ import { HomePage } from "./pages/HomePage/HomePage";
 
 export const UserContext = createContext();
 export const TransactionContext = createContext();
+export const ToggleChatBotContext = createContext();
+
 function App() {
   const [authUser, setAuthUser] = useState({
     status: false,
@@ -19,19 +21,22 @@ function App() {
     expenses: 0,
   });
   const [listOfTransactions, setListOfTransactions] = useState([]);
+  const [isChatBotOpen, setIsChatBotOpen] = useState(false);
 
   return (
     <div className="App">
       <UserContext.Provider value={{ authUser, setAuthUser }}>
         <TransactionContext.Provider value={{ listOfTransactions, setListOfTransactions }}>
-          <Router>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/*" element={<ErrorPage />} />
-            </Routes>
-          </Router>
+          <ToggleChatBotContext.Provider value={{ isChatBotOpen, setIsChatBotOpen }}>
+            <Router>
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/*" element={<ErrorPage />} />
+              </Routes>
+            </Router>
+          </ToggleChatBotContext.Provider>
         </TransactionContext.Provider>
       </UserContext.Provider>
     </div>

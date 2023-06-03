@@ -52,12 +52,11 @@ export const StatisticsBox = () => {
       console.log(error);
     }
   };
-
   return (
     <>
       <p id="title">Spendings</p>
       <div className="statistics-box-container">
-        {transactionsData ? (
+        {transactionsData !== null ? (
           <>
             <div className="sb-charts-holder">
               <canvas id="test"></canvas>

@@ -1,100 +1,134 @@
 // For phone screens
 @media screen and (max-width: 600px) {
-    .home-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    height: auto;
+    padding: 2rem 1rem;
+    position: relative;
+    #loading {
+      #loadbar {
+        background: none;
+        border: none;
+        width: 0.2rem;
+      }
+      svg {
+        color: #fff;
         width: 100%;
-        height: auto;
-        padding: 2rem 1rem;
-        #loading{
-            #loadbar{
-                background: none;
-                border: none;
-                width: 0.2rem;
-            }
-            svg{
-                color: #fff;
-                    width: 100%;
-            }
-        }
-        .home-content{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-            
-            .home-title{
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                h1{
-                    width: 100%;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    margin-bottom: 1rem;
-                    color: #fff;
-                    align-content: left;
-        
-                    #diff{
-                        color: #f8b500;
-                    }
-                }
-            }
-            .amount-widgets{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: flex-start;
-                gap: 10%;
-                width: 100%;
-                height: auto;
-                margin: 1rem 0;
-            }
-
-            .home-stats-container{
-                width: 100%;
-            }
-        }
+      }
     }
-}
-
-// FOR DESKTOP DEVICES
-.home-container{
-    .home-title{
+    .home-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      .home-title {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        margin: 1rem 0;
-        h1{
+        flex-direction: row;
+        padding: 0.5rem 0;
+        h1 {
+          width: 95%;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #fff;
+          align-content: left;
+          margin-bottom: 0.5rem;
+          #diff {
+            color: #f8b500;
+          }
+        }
+        .signout-icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          svg {
             width: 100%;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
             color: #fff;
-            align-content: left;
-    
-            #diff{
-                color: #f8b500;
-            }
+            font-size: 1.5rem;
+            margin: auto;
+          }
         }
-
-        .amount-widgets{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 5%;
-            height: auto;
-            margin: 1rem 0;
-        }
+      }
+      .amount-widgets {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10%;
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+      }
     }
+    .home-stats-container {
+      width: 100%;
+    }
+
+    .chatbot-icon {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8b500;
+      border-radius: 50%;
+      border: 3px solid #0f0f0f;
+      color: white;
+      box-shadow: 0px -0.5rem 4rem 0px rgba(0, 0, 0, 0.75);
+      font-size: 24px;
+      cursor: pointer;
+
+      #bot-icon{
+        background-color: #f8b500;
+        color: #0f0f0f;
+      }
+    }
+  }
 }
+
+// FOR DESKTOP DEVICES
+// .home-container {
+//   .home-title {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     margin: 1rem 0;
+//     h1 {
+//       width: 100%;
+//       font-size: 1.5rem;
+//       font-weight: 600;
+//       margin-bottom: 1rem;
+//       color: #fff;
+//       align-content: left;
+
+//       #diff {
+//         color: #f8b500;
+//       }
+//     }
+
+//     .amount-widgets {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       justify-content: flex-start;
+//       gap: 5%;
+//       height: auto;
+//       margin: 1rem 0;
+//     }
+//   }
+// }

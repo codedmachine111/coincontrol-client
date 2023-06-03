@@ -17,10 +17,11 @@ export const TransactionsBox = () => {
         setListOfTransactions(response.data.listOfTransactions);
       });
   }, []);
+
   return (
     <>
       <p id="title">Recent transactions</p>
-      {!listOfTransactions ? (
+      {listOfTransactions.length === 0 ? (
         <>
           <div className="transactions-box-container">
             <p>No transactions made yet.</p>
