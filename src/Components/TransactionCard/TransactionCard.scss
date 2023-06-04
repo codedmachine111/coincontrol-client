@@ -6,9 +6,22 @@
     padding: 0.5rem;
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    gap: 2%;
     margin: 0.5rem 0;
     border: 0.5px solid #ccc;
+    #tc-loading {
+      width: 100%;
+      text-align: center;
+      #tc-loadbar {
+        border: none;
+        width: 0.2rem;
+      }
+      svg {
+        color: #fff;
+        width: 100%;
+      }
+    }
+
     .tc-icon {
       display: flex;
       padding: 0.2rem;
@@ -66,27 +79,108 @@
       }
     }
 
-    .tc-delete-button {
+    .tc-buttons {
       background-color: #1b1b1b;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2%;
+
+      .btn {
+        margin: 0;
+        width: 80%;
+        border-radius: 0;
+      }
     }
-    .btn {
-      margin: 0;
-      border-radius: 0;
+
+    .tc-edit-form {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+      background-color: #1b1b1b;
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+      padding: 0.2rem;
+      gap: 1%;
+
+      #tc-edit-form-input {
+        width: 100%;
+        border: 1px solid #2e2e2e;
+        padding: 0.5rem;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #fff;
+        background-color: transparent;
+        outline: none;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &[type="number"] {
+          -moz-appearance: textfield;
+        }
+      }
+      .edit-form-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .btn {
+          margin: 0;
+          border-radius: 0;
+        }
+      }
+      #tc-edit-form-select {
+        width: 100%;
+        border: none;
+        padding: 0.7rem;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #fff;
+        outline: none;
+        background-color: #2e2e2e;
+
+        option {
+          color: #fff;
+          background-color: #2e2e2e;
+          font-family: "Poppins", sans-serif;
+        }
+      }
     }
   }
 }
 
 // FOR DESKTOP DEVICES
-.transaction-card-container{
+.transaction-card-container {
   width: 100%;
   background-color: #1b1b1b;
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
-  gap: 5%;
+  gap: 2%;
   margin: 0.5rem 0;
   border: 0.5px solid #ccc;
-  .tc-icon{
+
+  #tc-loading {
+    background: #1b1b1b;
+    #tc-loadbar {
+      background: #1b1b1b;
+      border: none;
+      width: 0.2rem;
+    }
+    svg {
+      color: #fff;
+      background-color: #1b1b1b;
+      width: 100%;
+    }
+  }
+  .tc-icon {
     display: flex;
     padding: 0.2rem;
     flex-direction: row;
@@ -94,43 +188,46 @@
     justify-content: center;
     width: 20%;
     background-color: #1b1b1b;
-    svg{
+
+    svg {
       width: 100%;
       font-size: 2rem;
       color: #fff;
       background-color: #1b1b1b;
     }
   }
-  .tc-amount-content{
+  .tc-amount-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width: 50%;
     background-color: #1b1b1b;
-    #type{
+    #type {
       font-size: 0.8rem;
       font-weight: 400;
       color: #fff;
       opacity: 0.8;
       background-color: #1b1b1b;
     }
-    .tc-amount{
-      p{
+    .tc-amount {
+      p {
         font-size: 1rem;
         font-weight: 600;
         color: #fff;
         background-color: #1b1b1b;
       }
-      #credit{
+
+      #credit {
         color: #62d9a1;
       }
-      #debit{
+      #debit {
         color: #ff4949;
       }
     }
-    .tc-date{
-      p{
+
+    .tc-date {
+      p {
         font-size: 0.8rem;
         font-weight: 400;
         color: #fff;
@@ -139,14 +236,79 @@
       }
     }
   }
-  .tc-delete-button{
+
+  .tc-buttons {
     background-color: #1b1b1b;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10%;
+
+    .btn {
+      margin: 0;
+      width: 80%;
+      border-radius: 0;
+    }
   }
-  .btn{
-    margin: 0;
-    border-radius: 0;
+
+  .tc-edit-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #1b1b1b;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    padding: 0.2rem;
+    gap: 1%;
+
+    #tc-edit-form-input {
+      width: 100%;
+      border: 1px solid #2e2e2e;
+      padding: 0.5rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #fff;
+      background-color: transparent;
+      outline: none;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &[type="number"] {
+        -moz-appearance: textfield;
+      }
+    }
+    .edit-form-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .btn {
+        margin: 0;
+        border-radius: 0;
+      }
+    }
+    #tc-edit-form-select {
+      width: 100%;
+      border: none;
+      padding: 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #fff;
+      outline: none;
+      background-color: #2e2e2e;
+
+      option {
+        color: #fff;
+        background-color: #2e2e2e;
+        font-family: "Poppins", sans-serif;
+      }
+    }
   }
 }
-
-
-

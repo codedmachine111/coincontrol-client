@@ -14,7 +14,7 @@ export const TransactionsBox = () => {
         headers: { accessToken: localStorage.getItem("token") },
       })
       .then((response) => {
-        setListOfTransactions(response.data.listOfTransactions);
+        setListOfTransactions(response.data.listOfTransactions.reverse());
       });
   }, []);
 

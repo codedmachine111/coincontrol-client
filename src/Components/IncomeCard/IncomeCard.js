@@ -29,9 +29,9 @@ export const IncomeCard = () => {
           },
         }
       );
-        
+
       // IF INCOME IS UPDATED SUCCESSFULLY, UPDATE THE AUTHUSER STATE
-      if (response.data.message === "Income updated successfully") {
+      if (response.data.message === "User Data updated successfully") {
         setAuthUser({ ...authUser, income: values.income });
         setLoading(false);
       } else {
@@ -43,7 +43,7 @@ export const IncomeCard = () => {
       setLoading(false);
     }
   };
-  
+
   return (
     <div className="income-card">
       <div className="income-card-title">
@@ -58,7 +58,15 @@ export const IncomeCard = () => {
                 placeholder="Enter your income"
                 required={true}
               />
-              {loading ? <CircularProgress /> : <Button type="submit" title="Add" />}
+              {!loading ? (
+                <>
+                  <div id="loading">
+                    <CircularProgress id="loadbar" />
+                  </div>
+                </>
+              ) : (
+                <Button type="submit" title="Add" />
+              )}
             </Form>
           </Formik>
         ) : (

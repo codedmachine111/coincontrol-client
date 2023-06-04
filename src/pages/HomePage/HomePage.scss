@@ -11,12 +11,18 @@
     padding: 2rem 1rem;
     position: relative;
     #loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #0f0f0f;
       #loadbar {
-        background: none;
+        background: #0f0f0f;
         border: none;
         width: 0.2rem;
       }
       svg {
+        background-color: #0f0f0f;
         color: #fff;
         width: 100%;
       }
@@ -91,7 +97,7 @@
       font-size: 24px;
       cursor: pointer;
 
-      #bot-icon{
+      #bot-icon {
         background-color: #f8b500;
         color: #0f0f0f;
       }
@@ -101,8 +107,19 @@
 
 // FOR DESKTOP DEVICES
 .home-container {
-  .home-content{
-    .home-title{
+  #loading {
+    #loadbar {
+      background: none;
+      border: none;
+      width: 0.2rem;
+    }
+    svg {
+      color: #fff;
+      width: 100%;
+    }
+  }
+  .home-content {
+    .home-title {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -144,7 +161,7 @@
     }
   }
 
-  .chatbot-icon{
+  .chatbot-icon {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
@@ -161,7 +178,7 @@
     font-size: 24px;
     cursor: pointer;
 
-    svg{
+    svg {
       background-color: #f8b500;
       color: #0f0f0f;
     }

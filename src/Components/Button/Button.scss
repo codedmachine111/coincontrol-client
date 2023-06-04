@@ -56,16 +56,13 @@
   }
 }
 
-#profile-btn{
-  border: 1px solid #fff;
-  color: #0f0f0f;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  text-decoration: none;
-  &:hover{
-    background-color: #0f0f0f;
-    color: #fff;
+#edit-icon, #trash-icon, #save-icon, #cancel-icon{
+  color: #fff;
+  font-size: 1.5rem;
+  background-color: #1b1b1b;
+  border: 1px solid #1b1b1b;
+
+  #ic{
+    background-color: #1b1b1b;
   }
 }

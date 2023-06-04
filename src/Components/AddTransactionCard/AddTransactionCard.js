@@ -97,8 +97,8 @@ export const AddTransactionCard = () => {
     <>
       {loading ? (
         <>
-          <div id="loading">
-            <CircularProgress id="loadbar" />
+          <div id="at-loading">
+            <CircularProgress id="at-loadbar" />
           </div>
         </>
       ) : (
