@@ -18,7 +18,7 @@ export const IncomeCard = () => {
     setLoading(true);
     try {
       const response = await axios.put(
-        "http://localhost:3001/auth/update",
+        "https://coincontrol-server.vercel.app/auth/update",
         {
           userId: authUser.userId,
           income: values.income,

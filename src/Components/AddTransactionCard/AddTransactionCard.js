@@ -23,7 +23,7 @@ export const AddTransactionCard = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/transactions/add",
+        "https://coincontrol-server.vercel.app/transactions/add",
         {
           userId: authUser.userId,
           amount: values.amount,
@@ -66,7 +66,7 @@ export const AddTransactionCard = () => {
 
         // UPDATE THE USER'S INCOME, CREDIT AND EXPENSES IN THE DATABASE
         await axios.put(
-          "http://localhost:3001/auth/update",
+          "https://coincontrol-server.vercel.app/auth/update",
           {
             userId: authUser.userId,
             income: updatedIncome,

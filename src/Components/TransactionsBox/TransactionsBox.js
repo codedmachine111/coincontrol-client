@@ -10,7 +10,7 @@ export const TransactionsBox = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/transactions/", {
+      .get("https://coincontrol-server.vercel.app/transactions/", {
         headers: { accessToken: localStorage.getItem("token") },
       })
       .then((response) => {

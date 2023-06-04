@@ -10,7 +10,7 @@ export const StatisticsBox = () => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/transactions", {
+      const response = await axios.get("https://coincontrol-server.vercel.app/transactions", {
         headers: {
           accessToken: localStorage.getItem("token"),
         },

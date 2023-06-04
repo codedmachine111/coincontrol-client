@@ -33,7 +33,7 @@ export const SignUpForm = (props) => {
     setLoading(true);
     if (values.password === values.confirmPassword) {
       axios
-        .post(`http://localhost:3001/auth/signup`, userObject)
+        .post(`https://coincontrol-server.vercel.app/auth/signup`, userObject)
         .then((res) => {
           if (res.data.message === "User Created!") {
             alert(res.data.message);

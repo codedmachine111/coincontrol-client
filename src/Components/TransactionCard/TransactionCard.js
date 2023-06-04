@@ -48,7 +48,7 @@ export const TransactionCard = (props) => {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:3001/transactions/delete/${id}`,
+        `https://coincontrol-server.vercel.app/transactions/delete/${id}`,
         {
           headers: {
             accessToken: localStorage.getItem("token"),
@@ -83,7 +83,7 @@ export const TransactionCard = (props) => {
       // UPDATE EDITED TRANSACTION with editAmount and editCategory
 
       const response = await axios.put(
-        "http://localhost:3001/transactions/update",
+        "https://coincontrol-server.vercel.app/transactions/update",
         {
           id: id,
           amount: editAmount,
@@ -118,7 +118,7 @@ export const TransactionCard = (props) => {
         }));
         // UPDATE USER IN DB
         const updateUserResponse = await axios.put(
-          "http://localhost:3001/auth/update",
+          "https://coincontrol-server.vercel.app/auth/update",
           {
             userId: authUser.userId,
             income: updatedIncome,

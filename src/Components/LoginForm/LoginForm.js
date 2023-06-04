@@ -30,7 +30,7 @@ export const LoginForm = (props) => {
       email: values.email,
     };
     setLoading(true);
-    axios.post(`http://localhost:3001/auth/login`, userObject).then((res) => {
+    axios.post(`https://coincontrol-server.vercel.app/auth/login`, userObject).then((res) => {
       if (res.data.message === "Login Successful") {
         resetFormFields();
         setAuthUser({
