@@ -5,9 +5,10 @@ import Chart from "chart.js/auto";
 
 export const StatisticsBox = () => {
   const [transactionsData, setTransactionsData] = useState(null);
+  const chartCanvas = document.getElementById("test");
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [transactionsData]);
   const fetchData = async () => {
     try {
       const response = await axios.get("https://coincontrol-server.vercel.app/transactions", {
@@ -29,7 +30,7 @@ export const StatisticsBox = () => {
       }, {});
 
       // PREPARE THE CHART
-      new Chart(document.getElementById("test"), {
+      new Chart(chartCanvas, {
         type: "doughnut",
         data: {
           labels: Object.keys(expenseByCategory),
