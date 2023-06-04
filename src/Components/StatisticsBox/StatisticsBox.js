@@ -1,14 +1,16 @@
 import "./StatisticsBox.scss";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 
 export const StatisticsBox = () => {
   const [transactionsData, setTransactionsData] = useState(null);
-  const chartCanvas = document.getElementById("test");
+  const chart = useRef(null);
+
   useEffect(() => {
     fetchData();
-  }, [transactionsData]);
+  }, []);
+
   const fetchData = async () => {
     try {
       const response = await axios.get("https://coincontrol-server.vercel.app/transactions", {
@@ -29,6 +31,8 @@ export const StatisticsBox = () => {
         return acc;
       }, {});
 
+      if(chart.current !== null) chart.current.destroy();
+      const chartCanvas = document.getElementById("test").getContext("2d");
       // PREPARE THE CHART
       new Chart(chartCanvas, {
         type: "doughnut",

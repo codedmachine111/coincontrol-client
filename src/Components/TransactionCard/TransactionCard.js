@@ -57,9 +57,43 @@ export const TransactionCard = (props) => {
       );
 
       if (response.data.message === "Transaction deleted successfully") {
-        alert("Transaction deleted successfully");
-        setLoading(false);
-        window.location.reload();
+        let updatedIncome = authUser.income;
+        let updatedCredit = authUser.credit;
+        let updatedExpenses = authUser.expenses;
+
+        if (category === "Credit") {
+          updatedCredit -= parseInt(amount);
+          updatedIncome -= parseInt(amount);
+        }else{
+          updatedExpenses -= parseInt(amount);
+          updatedIncome += parseInt(amount);
+        }
+        console.log(updatedIncome, updatedCredit, updatedExpenses);
+        // UPDATE USER IN CONTEXT AND DB
+        setAuthUser({
+          ...authUser,
+          income: updatedIncome,
+          credit: updatedCredit,
+          expenses: updatedExpenses,
+        });
+        const UserResponse = await axios.put("https://coincontrol-server.vercel.app/auth/update", {
+          userId: authUser.userId,
+          income: updatedIncome,
+          credit: updatedCredit,
+          expenses: updatedExpenses,
+        },{
+          headers: {
+            accessToken: localStorage.getItem("token"),
+          },
+        });
+        if (UserResponse.data.message === "User Data updated successfully") {
+          setLoading(false);
+          alert("Transaction deleted successfully");
+          window.location.reload();
+        }else{
+          alert("Failed to update User Data");
+          setLoading(false);
+        }
       } else {
         alert("Failed to delete transaction");
         setLoading(false);
