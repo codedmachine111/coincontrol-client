@@ -45,6 +45,7 @@ export const TransactionCard = (props) => {
   };
 
   const onDeleteHandler = async () => {
+    setLoading(true);
     try {
       const response = await axios.delete(
         `http://localhost:3001/transactions/delete/${id}`,
@@ -57,12 +58,15 @@ export const TransactionCard = (props) => {
 
       if (response.data.message === "Transaction deleted successfully") {
         alert("Transaction deleted successfully");
+        setLoading(false);
         window.location.reload();
       } else {
         alert("Failed to delete transaction");
+        setLoading(false);
       }
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 

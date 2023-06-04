@@ -58,10 +58,10 @@ export const IncomeCard = () => {
                 placeholder="Enter your income"
                 required={true}
               />
-              {!loading ? (
+              {loading ? (
                 <>
-                  <div id="loading">
-                    <CircularProgress id="loadbar" />
+                  <div id="ic-loading">
+                    <CircularProgress id="ic-loadbar" />
                   </div>
                 </>
               ) : (
