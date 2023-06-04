@@ -125,8 +125,8 @@ export const ChatBox = () => {
         <Formik initialValues={initialValues} onSubmit={onChatRequestHandler}>
           {loading ? (
             <>
-              <div id="loading">
-                <CircularProgress id="loadbar" />
+              <div id="cb-loading">
+                <CircularProgress id="cb-loadbar" />
               </div>
             </>
           ) : (

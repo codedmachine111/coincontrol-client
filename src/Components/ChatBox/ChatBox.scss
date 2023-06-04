@@ -44,6 +44,18 @@
       .chatbot-body {
         width: 100%;
         height: 85%;
+        #cb-loading {
+          width: 100%;
+          text-align: center;
+          #cb-loadbar {
+            border: none;
+            width: 0.2rem;
+          }
+          svg {
+            color: #fff;
+            width: 100%;
+          }
+        }
         .chatbot-messages {
           width: 100%;
           height: 100%;
@@ -137,6 +149,18 @@
       .chatbot-body {
         width: 100%;
         height: 85%;
+        #cb-loading {
+          width: 100%;
+          text-align: center;
+          #cb-loadbar {
+            border: none;
+            width: 0.2rem;
+          }
+          svg {
+            color: #fff;
+            width: 100%;
+          }
+        }
         .chatbot-messages {
           width: 100%;
           height: 100%;
