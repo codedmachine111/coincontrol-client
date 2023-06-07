@@ -8,20 +8,29 @@ export const StatisticsBox = () => {
   const chart = useRef(null);
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://coincontrol-server.vercel.app/transactions",
+          {
+            headers: {
+              accessToken: localStorage.getItem("token"),
+            },
+          }
+        );
+        const transactions = response.data.listOfTransactions;
+        setTransactionsData(transactions);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get("https://coincontrol-server.vercel.app/transactions", {
-        headers: {
-          accessToken: localStorage.getItem("token"),
-        },
-      });
-      const transactions = response.data.listOfTransactions;
-      setTransactionsData(transactions);
-      // CALCULATE THE EXPENSES BY CATEGORY
-      const expenseByCategory = transactions.reduce((acc, transaction) => {
+  useEffect(() => {
+    if (transactionsData !== null) {
+      const expenseByCategory = transactionsData.reduce((acc, transaction) => {
         if (transaction.category === "Credit") return acc;
         if (transaction.category in acc) {
           acc[transaction.category] += parseInt(transaction.amount);
@@ -31,10 +40,15 @@ export const StatisticsBox = () => {
         return acc;
       }, {});
 
-      if(chart.current !== null) chart.current.destroy();
       const chartCanvas = document.getElementById("test").getContext("2d");
-      // PREPARE THE CHART
-      new Chart(chartCanvas, {
+
+      if (chart.current !== null) {
+        // Destroy the existing chart
+        chart.current.destroy();
+      }
+
+      // Create a new chart
+      chart.current = new Chart(chartCanvas, {
         type: "doughnut",
         data: {
           labels: Object.keys(expenseByCategory),
@@ -53,10 +67,9 @@ export const StatisticsBox = () => {
           ],
         },
       });
-    } catch (error) {
-      console.log(error);
     }
-  };
+  }, [transactionsData]);
+
   return (
     <>
       <p id="title">Spendings</p>
