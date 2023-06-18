@@ -69,10 +69,10 @@ REACT_APP_OPENAI_API_KEY = "YOUR-API-KEY"
 > **Note**
 > You need to get your OpenAI API key from ![here](https://platform.openai.com/)
 
-5. Run the development server:
+5. Start the development server:
 
 ```bash
-npm run dev
+npm start
 ```
 
 ## Contribution
