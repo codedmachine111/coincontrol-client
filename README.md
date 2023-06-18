@@ -78,3 +78,7 @@ npm run dev
 ## Contribution
 
 This project was developed as part of the TechGig Microsoft Github Co-Pilot Hackathon. Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please submit a pull request or open an issue on the GitHub repository.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
